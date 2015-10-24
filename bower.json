@@ -1,0 +1,27 @@
+{
+  "name": "angularStuff",
+  "version": "0.0.0",
+  "homepage": "https://github.com/beebase/angularStuff",
+  "authors": [
+    "Maarten Berkenbosch <maarten@beebase.nl>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-animate": "~1.4.7",
+    "angular-aria": "~1.4.7",
+    "angular-material": "~0.11.3",
+    "mdi": "~1.2.65",
+    "jquery": "~2.1.4",
+    "angular-ui-router": "~0.2.15",
+    "angular-messages": "~1.4.7"
+  }
+}

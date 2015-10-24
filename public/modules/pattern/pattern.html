@@ -1,0 +1,27 @@
+<div layout="column"
+     ng-controller="PatternCtrl as vm">
+  <div layout="row"
+    layout-align="center center">
+    <md-whiteframe flex="80" class="md-whiteframe-10dp">
+      <md-list>
+        <md-list-item>
+          <div flex layout="row">
+            <div flex>Name</div>
+            <div flex>Category</div>
+            <div flex>Type</div>
+            <div flex>Structure</div>
+          </div>
+        </md-list-item>
+
+        <md-list-item ng-repeat="pattern in vm.patterns">
+          <div flex layout="row">
+            <div flex>{{pattern.name}}</div>
+            <div flex>{{pattern.category}}</div>
+            <div flex>{{pattern.type}}</div>
+            <div flex>{{pattern.structure}}</div>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-whiteframe>
+  </div>
+</div>

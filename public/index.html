@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"
+      ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>index</title>
+  <link rel="stylesheet" href="bower/angular-material/angular-material.css"/>
+  <link rel="stylesheet" href="bower/mdi/css/materialdesignicons.min.css"/>
+  <link rel="stylesheet" href="css/custom.css"/>
+</head>
+
+<!-- inject:js -->
+<script src="js/all.js"></script>
+<!-- endinject -->
+
+<style>
+  ._column {
+    background : green;
+    padding    : 10px;
+    border     : solid 1px;
+  }
+
+  ._row {
+    background : cadetblue;
+    padding    : 10px;
+    border     : solid 1px;
+  }
+
+  .uiview {
+    /*background : lightgrey;*/
+    padding : 10px;
+    border  : solid 1px lightgrey;
+  }
+</style>
+
+<body ng-controller="IndexCtrl as index">
+
+  <div layout="column"
+       style="height:100%;">
+    <div layout="row"
+         style="height:100%;">
+
+      <!--LEFT SIDE BAR-->
+      <md-sidenav class="md-sidenav-left md-whiteframe-10dp"
+                  layout="column"
+                  layout-align="start start"
+                  md-component-id="left"
+                  md-is-locked-open="$mdMedia('gt-sm')"
+                  style="height:100%">
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <p>Menu</p>
+            <md-button ng-click="index.closeSidebar('left')"
+                       ng-if="index.smallScreen">close
+            </md-button>
+          </div>
+        </md-toolbar>
+        <md-content>
+          <md-list>
+            <md-list-item ng-repeat="item in index.nav">
+              <div layout="row">
+                <md-button layout-fill
+                           ng-click="index.go(item.state)">
+                  {{item.name}}
+                </md-button>
+              </div>
+            </md-list-item>
+          </md-list>
+        </md-content>
+      </md-sidenav>
+
+      <!--MAIN-->
+      <md-content flex>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <md-button ng-click="index.toggleSidebar('left')"
+                       ng-if="index.smallScreen">
+              <md-icon class="mdi mdi-menu mdi-24px"></md-icon>
+            </md-button>
+            <p>{{index.breadcrumb}}</p>
+          </div>
+        </md-toolbar>
+        <div ui-view="index">ui view will show up here</div>
+      </md-content>
+    </div>
+  </div>
+</body>
+</html>

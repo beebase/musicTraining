@@ -1,0 +1,51 @@
+<div layout="column"
+     ng-controller="FretboardCtrl as vm">
+  <div layout="row"
+       layout-align="center center">
+    <md-whiteframe flex="80" class="md-whiteframe-10dp">
+      <md-list>
+        <md-list-item>
+          <div flex
+               layout="row">
+            <div flex>Name</div>
+            <div flex>Strings</div>
+
+          </div>
+        </md-list-item>
+
+        <md-list-item ng-repeat="fretboard in vm.fretboards">
+          <div flex layout="row"
+               layout-wrap>
+            <div flex="50">{{fretboard.name}}</div>
+            <div flex="40">{{fretboard.strings}}</div>
+            <div flex="10">
+              <md-button ng-click="vm.paintFretboard(fretboard)">
+                paint
+              </md-button>
+            </div>
+
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-whiteframe>
+  </div>
+  <div layout="row"
+       layout-align="center center">
+    <md-whiteframe flex="80" class="md-whitefram-10dp">
+      <div flex="100">
+        <table>
+          <tr ng-repeat="string in vm.structure track by $index">
+            <td ng-repeat="note in string track by $index">
+              <md-button class="md-fab md-tiny "
+                         ng-class="{ note : 'md-primary'}">
+                {{note}}
+              </md-button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </md-whiteframe>
+  </div>
+  <pre>{{vm | json}}</pre>
+
+</div>
